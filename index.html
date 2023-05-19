@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Validation Form</title>
+	<style type="text/css">
+			body{
+				background-image: url("at1.jpg");
+				background-repeat: no-repeat;
+				background-size: cover;
+    			font-weight: 400;
+    			
+			}
+			.image{
+				transition: 1s;
+			padding: 15px;
+			}
+		h1{
+			font-family: Serif;
+			font-size: 40px;
+			text-align: center;
+			padding-top: 60px;
+			}
+
+		.aa{
+			font-family: Serif;
+			font-size: 20px;
+			font-weight: bold;
+			text-align:center;
+			padding-top: 20px;
+		}
+		.bb{
+			font-family: Serif;
+			font-size: 20px;
+			font-weight: bold;
+			text-align: center;
+			padding-top: 20px;
+		}
+		.ee{
+			font-family: Serif;
+			font-size: 20px;
+			font-weight: bold;
+			text-align: center;
+			padding-top: 20px;
+		}
+		.dd{
+			font-family: Serif;
+			font-size: 20px;
+			font-weight: bold;
+			text-align: center;
+			padding-top: 20px;
+
+		}
+		.cc{
+			font-family: Serif;
+			font-size: 20px;
+			font-weight: bold;
+			text-align: center;
+			padding-top: 20px;
+			
+		}
+	</style>
+	<script>
+		function validate()
+		{
+			var username=document.getElementById("uname");
+			var password=document.getElementById("pass");
+			var email=document.getElementById("email").value;
+			var atposition=email.indexOf("@");  
+			var dotposition=email.lastIndexOf("."); 
+			var confirmPassword = document.getElementById("confirmpass");
+			var lenuser=username.value.length;
+			var lenpass=password.value.length;   //length of password
+			if(username.value ==""||password.value ==""||email.value==""||confirmPassword=="")
+			{
+				alert("No blank space is allowed");
+				return false;
+				
+			} 
+			if(atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length)
+			{  
+ 				alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+  				return false;  
+ 			}  
+			if(lenuser<3)
+			{
+				alert("Enter the valid name");
+				return false;
+			}
+			if(lenpass<3||lenpass>8) 
+			{  
+    		 	alert(" Check length of password");  
+    			return false;  
+ 			 }     
+       		if(password.value != confirmPassword.value)
+       		{
+            	alert("Passwords do not match.");
+            	return false;
+       		}
+       		else
+			{	
+				var message="You have entered the details:\n"
+				alert(message+"Name: "+username.value+"\nEmail:"+email+"\nPassword: "+password.value+"\nYour Password is confirm");
+			 true;
+				
+			};
+		}
+	</script>
+</head>
+<body>
+
+<form onsubmit="return validate();" action="return.html">
+	<h1> Validation Form</h1>
+<div class="aa">
+	<label style="padding-right: 70px;">User Name</label><br>
+	<input id="uname" placehorder="username" type="text" >
+	<br>
+</div>
+<div class="ee">
+	<label style="padding-right: 110px;">Email</label><br>
+	<input id="email" placehorder="email" type="text"  >
+	<br>
+</div>
+<div class="bb">
+	<label style="padding-right: 80px;">Password</label><br>
+	<input id="pass" placehorder="password" type="password"  >
+	<br>
+</div>
+<div class="dd">
+	<label style="padding-right: 10px;">Confirm Password</label><br>
+	<input id="confirmpass" placehorder="confirmpassword" type="password"  >
+	<br>
+</div>
+<div class="cc">
+	<button  type="submit"> Submit</button>
+	<button type="reset" value="Reset" > Reset</button>
+</div>
+
+</body>
+</html>
